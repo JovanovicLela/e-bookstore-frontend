@@ -9,7 +9,7 @@ export class Product {
 }
 
 
-export interface GetResponse {
+export interface GetResponseProducts {
   _embedded: {
     products: Product[];
   }

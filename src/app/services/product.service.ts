@@ -2,7 +2,12 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 import {GetResponseProducts, Product} from "../models/product";
-import {FIND_BY_CATEGORY_ID_ENDPOINT, GET_PRODUCT_CATEGORY_ENDPOINT, SEARCH_ENDPOINT} from "../app.constants";
+import {
+  FIND_BY_CATEGORY_ID_ENDPOINT,
+  GET_PRODUCT_CATEGORY_ENDPOINT,
+  GET_PRODUCTS_ENDPOINT,
+  SEARCH_ENDPOINT
+} from "../app.constants";
 import {GetResponseProductCategory, ProductCategory} from "../models/product-category";
 
 @Injectable({
@@ -31,5 +36,9 @@ export class ProductService {
     return this.httpClient.get<GetResponseProducts>(SEARCH_ENDPOINT + `${theKeyword}`).pipe(
       map((response: GetResponseProducts) => response._embedded.products)
     )
+  }
+
+  getProduct(theProductId: number): Observable<Product> {
+    return this.httpClient.get<Product>(GET_PRODUCTS_ENDPOINT + `${theProductId}`);
   }
 }

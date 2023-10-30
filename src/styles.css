@@ -732,7 +732,12 @@ table.table.table-bordered th{
   color:#3a3d3f
 }
 .detail-section{
-  margin-top:60px
+  /* TRBL */
+  margin: 100px 40px 350px 40px;
+}
+
+.detail-img{
+  width:30%;
 }
 /**/
 

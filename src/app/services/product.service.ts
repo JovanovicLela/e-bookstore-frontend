@@ -17,11 +17,17 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getProductList(categoryId: number): Observable<Product[]> {
+  getProductList(theCategoryId: number): Observable<Product[]> {
 
-    return this.httpClient.get<GetResponseProducts>(FIND_BY_CATEGORY_ID_ENDPOINT + `${categoryId}`).pipe(
+    return this.httpClient.get<GetResponseProducts>(FIND_BY_CATEGORY_ID_ENDPOINT + `${theCategoryId}`).pipe(
       map((response: GetResponseProducts) => response._embedded.products)
     );
+  }
+
+  getProductListPaginate(thePage: number, thePageSize: number, theCategoryId: number): Observable<GetResponseProducts> {
+
+    return this.httpClient.get<GetResponseProducts>(FIND_BY_CATEGORY_ID_ENDPOINT + `${theCategoryId}` +
+      `&page=${thePage}&size=${thePageSize}`);
   }
 
   getProductCategories(): Observable<ProductCategory[]> {

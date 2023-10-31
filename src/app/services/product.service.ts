@@ -44,6 +44,12 @@ export class ProductService {
     )
   }
 
+  searchProductsPaginate(thePage: number, thePageSize: number, theKeyword: string): Observable<GetResponseProducts> {
+
+    return this.httpClient.get<GetResponseProducts>(SEARCH_ENDPOINT + `${theKeyword}` +
+      `&page=${thePage}&size=${thePageSize}`);
+  }
+
   getProduct(theProductId: number): Observable<Product> {
     return this.httpClient.get<Product>(GET_PRODUCTS_ENDPOINT + `${theProductId}`);
   }

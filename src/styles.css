@@ -84,12 +84,16 @@ h6{
 }
 
 a{
-  display:inline-block
+  display:inline-block;
+}
+
+a:link{
+  color: #3f3cc7;
 }
 
 a:active,a:focus,a:hover{
   text-decoration:none;
-  outline:0
+  outline:0;
 }
 
 a,a:hover{
@@ -988,7 +992,7 @@ footer ul li{
     margin-left:15px
   }
   .footer-pagination{
-    text-align:center
+    text-align:center;
   }
 
   .page-container{
@@ -1049,4 +1053,6 @@ footer ul li{
     border:0;
     padding:8px 0
   }
+
+
 }
